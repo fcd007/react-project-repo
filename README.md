@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Para adicionar ao seu projeto:
+Para adicionar ao seu projeto:
 
 ### `yarn add react-router-dom`
 
-## Para adicionar as tipagens:
+Para adicionar as tipagens:
 
 ### `yarn add -D @types/react-router-dom`
 
