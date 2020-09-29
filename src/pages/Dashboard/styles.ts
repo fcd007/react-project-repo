@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 //template literals
 export const Title = styled.h1`
@@ -10,6 +11,7 @@ export const Title = styled.h1`
 `;
 
 //template literals
+//SASS, LESS
 export const Form = styled.form`
     margin-top: 40px;
     max-width: 700px;
@@ -28,5 +30,13 @@ export const Form = styled.form`
         width: 210px;
         height: 70px;
         background: #04d351;
+        border-radius: 0px 5px 5px 0px;
+        border: 0;
+        color: #fff;
+        font-weight: bold;
+
+        &:hover {
+            background: ${shade('0.2', '#04d351')};
+        }
     }
 `;

@@ -8,9 +8,9 @@ const Dashboard: React.FC = () => {
         <>
             <img src={ logoImg } alt="Github Explorer" />
             <Title>Explore Repository no Github </Title>
-
             <Form >
                 <input type="text" placeholder="Digite o nome do repostório"/>
+                <button type="submit">Pesquisar</button>
             </Form>
         </>
     );
