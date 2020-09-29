@@ -24,6 +24,11 @@ export const Form = styled.form`
         padding: 0 24px;
         border: 0;
         border-radius: 5px 0 0 5px;
+        color: #3a3a3a;
+
+        &::placeholder {
+            color: #a8a8b3;
+        }
     }
 
     button {
@@ -34,9 +39,55 @@ export const Form = styled.form`
         border: 0;
         color: #fff;
         font-weight: bold;
+        transition: background-color 0.2s;
 
         &:hover {
+            /* Aplicando efeito de houver escuro */
             background: ${shade('0.2', '#04d351')};
         }
     }
 `;
+
+export const Repositories = styled.div`
+    margin-top: 80px;
+    max-width: 700px;
+
+    a {
+        background: #fff;
+        border-radius: 5px;
+        width: 100%;
+        padding: 24px;
+        display: block;
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+
+        div {
+            margin-left: 16px;
+
+            strong {
+                font-size: 20px;
+                color: #3d3d4d;
+            }
+
+            p {
+                margin-top: 4px;
+                font-size: 18px;
+                color: #a8a8b3;
+            }
+
+            svg {
+                margin-left: auto;
+                color: #cbcbd6;
+            }
+        }
+    }
+`;
+
