@@ -74,13 +74,15 @@ export const Repositories = styled.div`
         }
 
         img {
+            margin-right: 10px;
             width: 64px;
             height: 64px;
             border-radius: 50%;
         }
 
         div {
-            margin-left: 16px;
+            margin-left: 0 16px;
+            flex: 1;
 
             strong {
                 font-size: 20px;
