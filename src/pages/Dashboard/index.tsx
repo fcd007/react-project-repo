@@ -3,7 +3,7 @@ import logoImg from '../../assets/logo.svg';
 import { FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
 
-import { Title, Form, Repositories } from './styles';
+import { Title, Form, Repositories, Error } from './styles';
 
 interface Repository {
     full_name: string;
@@ -16,20 +16,31 @@ interface Repository {
 
 const Dashboard: React.FC = () => {
     const [newRepo, setNewRepo] = useState('');
+    const [inputError, setInputError] = useState('');
     const [repositories, setRepositories] = useState<Repository[]>([]);
 
     async function handleAddRepository(
         event: FormEvent <HTMLFormElement>,
         ): Promise<void> {
-        event.preventDefault();
-        // console.log(newRepo);
-        const response = await api.get<Repository>(`repos/${newRepo}`);
-        // console.log(response.data);
-        const repository = response.data;
+            event.preventDefault();
 
-        setRepositories([...repositories, repository]);
+            if (!newRepo) {
+                setInputError('Digite o autor/nome do repositório');
+                return;
+            }
         
-        setNewRepo('');
+            try {
+                // console.log(newRepo);
+                const response = await api.get<Repository>(`repos/${newRepo}`);
+                // console.log(response.data);
+                const repository = response.data;
+
+                setRepositories([...repositories, repository]);
+                setNewRepo('');
+                setInputError('');
+            } catch (err) {
+                setInputError('Erro na busca por esse repositório');
+            }
     }
     return (
         <>
@@ -42,6 +53,9 @@ const Dashboard: React.FC = () => {
                     type="text" placeholder="Digite o nome do repostório"/>
                 <button type="submit">Pesquisar</button>
             </Form>
+
+            {inputError && <Error>{ inputError }</Error> }
+
             <Repositories>
                 { repositories.map(repository => (
                     <a key={ repository.full_name } href="http://">
