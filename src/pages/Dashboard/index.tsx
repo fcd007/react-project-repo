@@ -64,13 +64,13 @@ const Dashboard: React.FC = () => {
         <>
             <img src={ logoImg } alt="Github Explorer" />
             <Title>Explore Repository no Github </Title>
-            <Form hasError= { !!inputError } onSubmit= { handleAddRepository }>
-                <input 
-                    value= { newRepo }
-                    onChange = { e => setNewRepo(e.target.value) }
-                    type="text" placeholder="Digite o nome do repostório"/>
-                <button type="submit">Pesquisar</button>
-            </Form>
+                <Form hasError= { !!inputError } onSubmit= { handleAddRepository }>
+                    <input 
+                        value= { newRepo }
+                        onChange = { e => setNewRepo(e.target.value) }
+                        type="text" placeholder="Digite o nome do repostório"/>
+                    <button type="submit">Pesquisar</button>
+                </Form>
 
             {inputError && <Error>{ inputError }</Error> }
 
